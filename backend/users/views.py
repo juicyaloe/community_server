@@ -12,6 +12,7 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
 
 class LoginView(generics.GenericAPIView):
+    permission_classes = [permissions.AllowAny]
     serializer_class = LoginSerializer
 
     def post(self, request):

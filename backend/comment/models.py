@@ -9,5 +9,6 @@ from writing.models import Writing
 class Comment(models.Model):
     post_id = models.ForeignKey("writing.Writing", on_delete=models.CASCADE, related_name='comments')
     content = models.TextField()
+    writer = models.CharField(max_length=100, blank=True)
     inittime = models.DateTimeField(auto_now=True)
 

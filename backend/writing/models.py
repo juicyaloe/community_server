@@ -6,6 +6,8 @@ class Writing(models.Model):
 
     inittime = models.DateTimeField(auto_now=True)
 
+    writer = models.CharField(max_length=200, blank=True)
+
     class Board(models.TextChoices):
         AIRPLANE = 'airplane'
         CAR = 'car'

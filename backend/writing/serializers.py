@@ -9,11 +9,12 @@ class WritingSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'id',
+            'writer',
+            'board',
             'title',
             'content',
-            'inittime',
-            'board',
             'comments',
+            'inittime',
         )
         model = Writing
 

@@ -8,7 +8,7 @@ from .serializers import WritingSerializer
 
 from rest_framework import permissions
 
-class WritingAll(generics.ListCreateAPIView):
+class WritingAll(generics.ListAPIView):
     queryset = Writing.objects.all()
     serializer_class = WritingSerializer
 
@@ -20,6 +20,8 @@ class WritingAIRPLANE(APIView):
 
     def post(self, request, format=None):
         request.data['board'] = 'airplane'
+        request.data['writer'] = str(request.user)
+
         serializer = WritingSerializer(data=request.data)
 
         if serializer.is_valid():
@@ -35,6 +37,8 @@ class WritingCAR(APIView):
 
     def post(self, request, format=None):
         request.data['board'] = 'car'
+        request.data['writer'] = str(request.user)
+
         serializer = WritingSerializer(data=request.data)
 
         if serializer.is_valid():

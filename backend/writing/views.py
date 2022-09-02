@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics, status
+from rest_framework import generics, status, viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -42,9 +42,6 @@ class WritingCAR(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
 class WritingDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Writing.objects.all()
     serializer_class = WritingSerializer
-
-

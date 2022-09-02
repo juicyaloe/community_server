@@ -8,6 +8,8 @@ from rest_framework import permissions
 # Create your views here.
 
 class RegisterView(generics.CreateAPIView):
+    permission_classes = [permissions.AllowAny]
+
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
 

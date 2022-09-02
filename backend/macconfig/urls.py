@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path((defaulturl+'writing/'), include('writing.urls')),
     path((defaulturl+'users/'), include('users.urls')),
+    path((defaulturl+'comment/'), include('comment.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
